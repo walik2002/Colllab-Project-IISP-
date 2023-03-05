@@ -2,16 +2,16 @@ import {DataTypes} from 'sequelize';
 import {sequelize} from "../config/database.js";
 
 const Client = sequelize.define('Client', {
-    client_id: {
+    clientId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    first_name: {
+    firstName: {
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    last_name: {
+    lastName: {
         type: DataTypes.STRING(50),
         allowNull: false
     },
@@ -20,7 +20,7 @@ const Client = sequelize.define('Client', {
         allowNull: false,
         unique: true
     },
-    phone_number: {
+    phoneNumber: {
         type: DataTypes.STRING(20),
         allowNull: false
     },
@@ -28,7 +28,7 @@ const Client = sequelize.define('Client', {
         type: DataTypes.STRING(255),
         allowNull: false
     },
-    date_of_birth: {
+    dateOfBirth: {
         type: DataTypes.DATEONLY,
         allowNull: false
     },
@@ -40,21 +40,21 @@ const Client = sequelize.define('Client', {
         type: DataTypes.STRING(255),
         allowNull: false
     },
-    registration_date: {
+    registrationDate: {
         type: DataTypes.DATEONLY,
         allowNull: false
     },
-    subscription_status: {
+    subscriptionStatus: {
         type: DataTypes.ENUM('active', 'inactive'),
         allowNull: false
     },
-    subscription_end_date: {
+    subscriptionEndDate: {
         type: DataTypes.DATEONLY,
-        allowNull: false
+        allowNull: true
     },
-    available_sessions: {
+    availableSessions: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     }
 }, {
     timestamps: false,
