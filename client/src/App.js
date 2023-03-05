@@ -1,14 +1,17 @@
-import Button from "./Components/Button";
-import FormComponent from "./Components/Form";
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import MainScreen from './Pages/MainScreen';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './components/AppRouter';
 
-function App() {
+
+
+const App = () => {
   return (
-    <div >
-      <Button/>
-      <FormComponent/>
-      Working
-    </div>
-  );
-}
+  <BrowserRouter>
+      <MainScreen/>
+      <AppRouter/>
+  </BrowserRouter>
+  );}
 
 export default App;
