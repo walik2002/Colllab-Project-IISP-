@@ -1,14 +1,14 @@
-import Button from "./Components/Button";
-import FormComponent from "./Components/Form";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from './Components/Header';
+import Questionnaire from './Components/Questionnaire';
+import Results from './Components/Results';
+import StaffDevelopment from './Components/StaffDevelopment';
 
-function App() {
-  return (
-    <div >
-      <Button/>
-      <FormComponent/>
-      Working
-    </div>
-  );
-}
+const App = ({ results }) => (
+  <div>
+    Working
+  </div>
+  )
 
 export default App;
