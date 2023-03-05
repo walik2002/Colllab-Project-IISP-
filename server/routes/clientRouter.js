@@ -1,5 +1,5 @@
 import express from "express";
-import {getClientById,getAllClients,createClient,updateClient,deleteClient} from '../controllers/clientController.js'
+import {getClientById, getAllClients, createClient, updateClient, deleteClient} from '../controllers/clientController.js'
 
 const clientRouter = express.Router();
 
