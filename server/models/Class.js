@@ -1,5 +1,6 @@
 import {DataTypes} from 'sequelize';
 import {sequelize} from "../config/database.js";
+import Trainer from "./Trainer.js";
 
 const Class = sequelize.define('class', {
     classId: {

@@ -1,5 +1,6 @@
 import {DataTypes} from 'sequelize';
 import {sequelize} from "../config/database.js";
+import Class from "./Class.js";
 
 const Trainer = sequelize.define('Trainer',
     {
@@ -56,5 +57,5 @@ const Trainer = sequelize.define('Trainer',
         underscored: true
     }
 );
-
+Class.hasMany(Trainer, { foreignKey: 'trainerId' });
 export default Trainer;

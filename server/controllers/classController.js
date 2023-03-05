@@ -1,9 +1,10 @@
 import Class from "../models/Class.js";
+import Trainer from "../models/Trainer.js";
 
 // Получить список всех занятий
 async function getClasses(req, res) {
     try {
-        const classes = await Class.findAll();
+        const classes = await Class.findAll({ include: Trainer });
         res.status(200).json(classes);
     } catch (error) {
         console.error(error);
@@ -33,7 +34,7 @@ async function createClass(req, res) {
 async function getClassById(req, res) {
     const { id } = req.params;
     try {
-        const classItem = await Class.findByPk(id);
+        const classItem = await Class.findByPk(id, { include: Trainer });
         if (classItem) {
             res.status(200).json(classItem);
         } else {
@@ -44,6 +45,7 @@ async function getClassById(req, res) {
         res.status(500).json({ message: "Internal server error" });
     }
 }
+
 
 // Обновить информацию о занятии
 async function updateClass(req, res) {
