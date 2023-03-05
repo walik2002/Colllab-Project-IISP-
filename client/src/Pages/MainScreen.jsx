@@ -10,22 +10,19 @@ function MainScreen() {
       <nav>
         <ul>
         <li>
-            <Link to="/schedule">Главная страница</Link>
+            <Link to="/main">Главная страница</Link>
           </li>
           <li>
-            <Link to="/schedule">Расписание</Link>
+            <Link to="/raspisanie">Расписание</Link>
           </li>
           <li>
-            <Link to="/trainings">Тренировки</Link>
+            <Link to="/treners">Тренеры</Link>
           </li>
           <li>
-            <Link to="/coaches">Тренеры</Link>
+            <Link to="/service">Услуги</Link>
           </li>
           <li>
-            <Link to="/subscriptions">Абонементы</Link>
-          </li>
-          <li>
-            <Link to="/profile">Профиль</Link>
+            <Link to="/account">Профиль</Link>
           </li>
           <li>
             <Link to="/contacts">Контакты</Link>

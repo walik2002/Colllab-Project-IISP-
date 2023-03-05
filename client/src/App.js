@@ -1,15 +1,17 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import MainScreen from './Pages/MainScreen';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './components/AppRouter';
 
 
 
-const App = ({ results }) => (
-  <div>
-  
+const App = () => {
+  return (
+  <BrowserRouter>
       <MainScreen/>
-   
-  </div>
-  )
+      <AppRouter/>
+  </BrowserRouter>
+  );}
 
 export default App;
