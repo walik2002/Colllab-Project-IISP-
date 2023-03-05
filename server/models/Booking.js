@@ -1,7 +1,14 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../database');
+import {DataTypes} from 'sequelize';
+import {sequelize} from "../config/database.js";
 
 const Booking = sequelize.define('booking', {
+    bookingId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+        field: 'booking_id'
+    },
     clientId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -27,6 +34,8 @@ const Booking = sequelize.define('booking', {
     },
 }, {
     timestamps: false,
+    tableName: 'bookings',
+    underscored: true
 });
 
-module.exports = Booking;
+export default Booking;
