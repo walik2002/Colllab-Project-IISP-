@@ -6,7 +6,7 @@ import "../CSS/Banner.css";
 function MainScreen() {
   return (
     <div>
-      <Banner />
+      <Banner/>
       <nav>
         <ul>
         <li>
