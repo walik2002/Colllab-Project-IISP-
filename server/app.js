@@ -1,15 +1,13 @@
-const express = require('express');
+import express from 'express';
+import cors from 'cors';
+import {sequelize} from './config/database.js';
+import clientRouter from "./routes/clientRouter.js";
+
+
 const app = express();
-const cors = require('cors');
-
+app.use(express.json());
 app.use(cors());
-
-app.get('/', function(req, res) {
-    const message = {
-        greeting: 'Привет, мир!'
-    };
-    res.json(message);
-});
+app.use('/clients', clientRouter);
 
 app.listen(3001, function() {
     console.log('Приложение запущено на порту 3001');
