@@ -8,6 +8,6 @@ app.get('/', function(req, res) {
     res.json(message);
 });
 
-app.listen(3000, function() {
-    console.log('Приложение запущено на порту 3000');
+app.listen(3001, function() {
+    console.log('Приложение запущено на порту 3001');
 });
