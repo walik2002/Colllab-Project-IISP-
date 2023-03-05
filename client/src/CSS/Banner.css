@@ -1,0 +1,66 @@
+.banner {
+    background-image: url("https://cdn.pixabay.com/photo/2016/08/05/09/31/banner-1571858_960_720.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(106, 73, 73);
+  }
+  
+  .banner h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  
+  .banner p {
+    font-size: 24px;
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 32px;
+  }
+  
+  .cta {
+    background-color: #f2c04c;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  nav {
+    background-color: #4a4a4a;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav li {
+    margin-right: 24px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+  }
+  
+  nav a:hover {
+    background-color: #f2c04c;
+    border-radius: 4px;
+  }
