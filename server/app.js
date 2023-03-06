@@ -16,7 +16,7 @@ app.use('/trainers',trainerRouter);
 app.use('/classes',classRouter);
 app.use('/bookings',bookingRouter);
 app.use('/admins',adminRouter);
-app.use('login',loginRouter);
+app.use('/login',loginRouter);
 
 app.listen(3001, function() {
     console.log('Приложение запущено на порту 3001');
