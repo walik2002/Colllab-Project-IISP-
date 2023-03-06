@@ -1,6 +1,6 @@
 import Client from "../models/Client.js";
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {

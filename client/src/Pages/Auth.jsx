@@ -1,5 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
+import axios from 'axios';
 import { useContext } from "react";
 import { useState } from "react";
 import { Button, Card, Container, Form, Row } from "react-bootstrap";
@@ -13,35 +14,44 @@ const Auth = observer( () => {
     const location  = useLocation()
     const navigate = useNavigate()
     const isLogin = location.pathname === LOGIN_ROUTE
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [name, setName] = useState('')
-    const [surname, setSurname] = useState('')
-    const [fathername, setFathername] = useState('')
-    const [phone_number, setPhone_number] = useState('')
-    const Click = async () => {
-        try{
-            let data;
-            if(isLogin){  
-                data = await login(email, password)
+
+
+    const [FirstName, setFirstName] = useState('')
+    const [LastName, setLastName] = useState('')
+    const [PhoneNumber, setPhoneNumber] = useState('')
+    const [DateOfBirth, setDateOfBirth] = useState('')
+    const [Gender, setGender] = useState('')
+    const [Address, setAddress] = useState('')
+  
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if(isLogin){  
+        try {
+            const res = await axios.post('http://localhost:3001/login', { email, password });
+            if (res.status === 200) {
+              setMessage('Вы успешно вошли в систему!');
+              navigate(MAIN_ROUTE);
+              alert(message)
+              // Здесь можно выполнить дополнительные действия после успешной аутентификации
             }
-            else{
-                data = await registration(email, password, name, surname, fathername, phone_number )
-            }
-            console.log(data)
-            user.setRole(data.role)
-            user.setID(data.id)
-            console.log(user.id)
-            user.setUser(user)
-            user.setIsAuth(true)
-            navigate(MAIN_ROUTE)
-        }
-        catch(e)
-        {
-            alert(e.response.data.message)
-        }
-       
+          } catch (err) {
+            console.error(err);
+            setMessage('Неправильный логин или пароль');
+            alert(message)
+          }
+      }
+    else{
+              
     }
+
+  };
     return (
         <Container 
         className="d-flex justify-content-center align-items-center"
@@ -49,7 +59,7 @@ const Auth = observer( () => {
         >
             <Card style={{width:600}} className="p-5">
                 <h2 className="m-auto">{isLogin ? 'Авторизация' : "Регистрация"}</h2>
-                <Form className="d-flex flex-column">
+                <Form onSubmit={handleSubmit} className="d-flex flex-column">
                         {isLogin ?
                         <>
                         <Form.Control
@@ -70,33 +80,27 @@ const Auth = observer( () => {
                         <>
                         <Form.Control
                         className="mt-3"
-                        placeholder="Введите имя" 
-                        value={name}
-                        onChange={e => setName(e.target.value)}
+                        placeholder="Введите Фамилию" 
+                        value={FirstName}
+                        onChange={e => setFirstName(e.target.value)}
                         />
                          <Form.Control
                         className="mt-3"
-                        placeholder="Введите фамилию" 
-                        value={surname}
-                        onChange={e => setSurname(e.target.value)}
+                        placeholder="Введите Имя" 
+                        value={LastName}
+                        onChange={e => setLastName(e.target.value)}
                         />
                         <Form.Control
                         className="mt-3"
-                        placeholder="Введите отчество" 
-                        value={fathername}
-                        onChange={e => setFathername(e.target.value)}
-                        />
-                        <Form.Control
-                        className="mt-3"
-                        placeholder="Введите email" 
+                        placeholder="Введите E-mail" 
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         />
                         <Form.Control
                         className="mt-3"
                         placeholder="Введите номер телефона"
-                        value={phone_number}
-                        onChange={e => setPhone_number(e.target.value)} 
+                        value={PhoneNumber}
+                        onChange={e => setPhoneNumber(e.target.value)} 
                         type="number"
                         />
                         <Form.Control
@@ -104,6 +108,24 @@ const Auth = observer( () => {
                         placeholder="Введите пароль" 
                         value={password}
                         onChange={e => setPassword(e.target.value)}
+                        />
+                        <Form.Control
+                        className="mt-3"
+                        placeholder="Введите дату рождения" 
+                        value={DateOfBirth}
+                        onChange={e => setDateOfBirth(e.target.value)}
+                        />
+                        <Form.Control
+                        className="mt-3"
+                        placeholder="Введите пол" 
+                        value={Gender}
+                        onChange={e => setGender(e.target.value)}
+                        />
+                        <Form.Control
+                        className="mt-3"
+                        placeholder="Введите адресс" 
+                        value={Address}
+                        onChange={e => setAddress(e.target.value)}
                         />
                         </>
 
@@ -120,7 +142,7 @@ const Auth = observer( () => {
                                 Есть акаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
                             </div>
                             }
-                            <Button className="mt-3" variant={"outline-success"} onClick={Click}>
+                            <Button className="mt-3" variant={"outline-success"} type="submit">
                                {isLogin ? 'Войти' : "Регистрация" } 
                             </Button>
                         </Row>
