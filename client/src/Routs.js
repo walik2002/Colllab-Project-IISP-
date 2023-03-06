@@ -14,16 +14,18 @@ export const authRoutes = [
     {
         path: ADMIN_ROUTE,
         Component: Admin
-    }
-
+    },
+    {
+        path: ACCOUNT_ROUTE + '/:id',
+        Component: Account
+    },
+    {
+        path: RASPISANIE_ROUTE,
+        Component: Raspisanie
+    },
 ]
 
 export const publicRoutes = [
-    {
-        path: ACCOUNT_ROUTE,
-        Component: Account
-    },
-
     {
         path: LOGIN_ROUTE,
         Component: Auth
@@ -39,10 +41,6 @@ export const publicRoutes = [
     {
         path: MAIN_ROUTE,
         Component: MainScreen
-    },
-    {
-        path: RASPISANIE_ROUTE,
-        Component: Raspisanie
     },
     {
         path: SERVICE_ROUTE,

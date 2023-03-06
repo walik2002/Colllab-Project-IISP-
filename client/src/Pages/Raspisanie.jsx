@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import moment from "moment";
+import "../CSS/Raspisanie.css";
 
 function Raspisanie() {
   const [classes, setClasses] = useState([]);
@@ -38,18 +39,20 @@ function Raspisanie() {
   }
 
   return (
-    <div>
-      <h1>Classes</h1>
-      <ul>
+    <div className="container">
+      <h1 className="title">Расписание занятий</h1>
+      <ul className="class-list">
         {classes.map((classItem) => (
-          <li key={classItem.classId}>
-            <h2>{classItem.name}</h2>
-            <p>{classItem.description}</p>
-            <p>{classItem.maxParticipants}</p>
-            <p>{moment(classItem.dateTime).format("YYYY-MM-DD HH:mm")}</p>
-            <p>Trainer: {classItem.Trainers[0].firstName} {classItem.Trainers[0].lastName}</p>
-            <button onClick={() => handleDeleteClass(classItem.classId)}>
-              Delete
+          <li key={classItem.classId} className="class-item">
+            <div className="class-info">
+              <h2>{classItem.name}</h2>
+              <p>{classItem.description}</p>
+              <p>{classItem.maxParticipants}</p>
+              <p>{moment(classItem.dateTime).format("YYYY-MM-DD HH:mm")}</p>
+              <p>Trainer: {classItem.Trainers[0].firstName} {classItem.Trainers[0].lastName}</p>
+            </div>
+            <button className="delete-btn" onClick={() => handleDeleteClass(classItem.classId)}>
+              Удалить
             </button>
           </li>
         ))}
@@ -58,4 +61,4 @@ function Raspisanie() {
   );
 }
 
-export default Raspisanie;
+export default Raspisanie
