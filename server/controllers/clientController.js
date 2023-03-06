@@ -108,4 +108,19 @@ const deleteClient = async (req, res) => {
     }
 };
 
-export {getClientById,getAllClients,createClient,updateClient,deleteClient};
+const getClientByEmail = async (req, res) => {
+    const { email } = req.params;
+    try {
+        const client = await Client.findOne({ where: { email } });
+        if (!client) {
+            return res.status(404).json({ message: 'Client not found' });
+        }
+        res.status(200).json(client);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
+export { getAllClients, getClientById, createClient, updateClient, deleteClient, getClientByEmail };
+
