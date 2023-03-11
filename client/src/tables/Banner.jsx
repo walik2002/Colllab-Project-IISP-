@@ -1,12 +1,16 @@
 import React from "react";
 import "../CSS/Banner.css";
+import BannerPP from "../picture/BannerPP.png";
+
 
 function Banner() {
   return (
-    <div className="banner">
-      <h1>Добро пожаловать в наш фитнес клуб</h1>
-      <p>Мы поможем вам достичь своих целей и стать здоровым и крепким</p>
-      <button className="cta">Начать тренироваться</button>
+    <div className="banner-wrapper">
+      <div className="banner">
+        <img src={BannerPP} alt="banner-img" />
+        <div className="banner-text">
+        </div>
+      </div>
     </div>
   );
 }

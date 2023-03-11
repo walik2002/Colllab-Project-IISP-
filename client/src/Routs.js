@@ -7,23 +7,30 @@ import Raspisanie from "./Pages/Raspisanie"
 import Service from "./Pages/Services"
 import Treners from "./Pages/Treners"
 import Main from "./Pages/Main"
-import { ACCOUNT_ROUTE, ADMIN_ROUTE, CONTACTS_ROUTE, LOGIN_ROUTE, MAINS_ROUTE, MAIN_ROUTE, RASPISANIE_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, TRENERS_ROUTE } from "./utils/consts"
+import UpdateProfile from "./Pages/UpdateProfile"
+import { UPDATE_ROUTE, ACCOUNT_ROUTE, ADMIN_ROUTE, CONTACTS_ROUTE, LOGIN_ROUTE, MAINS_ROUTE, MAIN_ROUTE, RASPISANIE_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, TRENERS_ROUTE } from "./utils/consts"
 
 
 export const authRoutes = [
     {
         path: ADMIN_ROUTE,
         Component: Admin
-    }
-
+    },
+    {
+        path: UPDATE_ROUTE,
+        Component: UpdateProfile
+    },
+    {
+        path: ACCOUNT_ROUTE + '/:id',
+        Component: Account
+    },
+    {
+        path: RASPISANIE_ROUTE,
+        Component: Raspisanie
+    },
 ]
 
 export const publicRoutes = [
-    {
-        path: ACCOUNT_ROUTE,
-        Component: Account
-    },
-
     {
         path: LOGIN_ROUTE,
         Component: Auth
@@ -39,10 +46,6 @@ export const publicRoutes = [
     {
         path: MAIN_ROUTE,
         Component: MainScreen
-    },
-    {
-        path: RASPISANIE_ROUTE,
-        Component: Raspisanie
     },
     {
         path: SERVICE_ROUTE,
