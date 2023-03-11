@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "..";
 import '../CSS/Account.css'; // импортируйте свои стили
@@ -12,6 +13,7 @@ const Account = () => {
 
   useEffect(() => {
     const fetchClient = async () => {
+      console.log(user)
       const response = await axios.get(`http://localhost:3001/clients/${user.clientId}`);
       setClient(response.data);
     };
@@ -36,6 +38,9 @@ const Account = () => {
         <p>Subscription End Date: {client.subscriptionEndDate}</p>
         <p>Available Sessions: {client.availableSessions}</p>
       </div>
+      <Link to="/update">
+        <button>Update Profile</button>
+      </Link>
     </div>
   );
 };

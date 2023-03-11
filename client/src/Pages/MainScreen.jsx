@@ -30,11 +30,6 @@ const MainScreen = observer(() => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/service">
-              Услуги
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link className="nav-link" to={"/account/" + user.clientId} >
               Профиль
             </Link>

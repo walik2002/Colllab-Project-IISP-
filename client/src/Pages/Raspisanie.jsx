@@ -11,7 +11,9 @@ function Raspisanie() {
       try {
         const response = await fetch("http://localhost:3001/classes");
         const data = await response.json();
+        console.log(data)
         setClasses(data);
+        console.log(classes)
         setLoading(false);
       } catch (error) {
         console.error(error);
