@@ -1,5 +1,6 @@
 import {DataTypes} from 'sequelize';
 import {sequelize} from "../config/database.js";
+import Class from "./Class.js";
 
 const Booking = sequelize.define('booking', {
     bookingId: {
@@ -37,5 +38,6 @@ const Booking = sequelize.define('booking', {
     tableName: 'bookings',
     underscored: true
 });
+
 
 export default Booking;
