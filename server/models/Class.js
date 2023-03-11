@@ -1,6 +1,6 @@
 import {DataTypes} from 'sequelize';
 import {sequelize} from "../config/database.js";
-import Trainer from "./Trainer.js";
+import Booking from "./Booking.js";
 
 const Class = sequelize.define('class', {
     classId: {
@@ -43,4 +43,6 @@ const Class = sequelize.define('class', {
     underscored: true
 });
 
+Class.hasMany(Booking, { foreignKey: 'classId' });
+Booking.belongsTo(Class, { foreignKey: 'classId' });
 export default Class;
